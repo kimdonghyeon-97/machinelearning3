@@ -60,10 +60,16 @@
         // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
         // or files from your local hard drive
         // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        var audio = new Audio( 'wait1.mp3' );
+        audio.play();
         alert("시작합니다. 잠시만 기다려 주십시오.(약 8초 이내)")
+
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
-        alert("머신러닝 모델을 불러오기...")
+
+        var audio = new Audio( 'wait2.mp3' );
+        audio.play();
+        alert("머신러닝 모델을 불러오고 있습니다.")
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
@@ -71,7 +77,10 @@
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
-        alert("머신러닝 모델을 불러오고 있습니다.잠시만 기다려 주십시오.(약 8초 이내)")
+
+        var audio = new Audio( 'wait3.mp3' );
+        audio.play();
+        alert("머신러닝 모델을 불러왔습니다.")
 
         // append elements to the DOM
         document.getElementById("webcam-container").appendChild(webcam.canvas);
